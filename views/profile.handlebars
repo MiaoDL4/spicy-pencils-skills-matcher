@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<form class="teach-project-form">
+  <label for="teach-name">What i can teach:</label>
+  <input type="text" id="teach-name" name="teach-name" />
+  <label for="teach-level">My skill level:</label>
+  <input type="text" id="teach-level" name="teach-level" />
+  <label for="teach-desc">description:</label>
+  <textarea id="teach-desc" name="teach-desc"></textarea>
+  <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<form class="form learn-project-form">
+  <label for="learn-name">What i want to learn:</label>
+  <input type="text" id="learn-name" name="learn-name" />
+  <label for="learn-level">My skill level:</label>
+  <input type="text" id="learn-level" name="learn-level" />
+  <label for="learn-desc">description:</label>
+  <textarea id="learn-desc" name="learn-desc"></textarea>
+  <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+
+{{#if teaches.length}}
+<div class="teach-list">
+  <h3>thing i want to teach</h3>
+
+  {{#each teaches as |teach|}}
+  <div>
+    <div>
+      <h4><a href="/teach/{{teach.id}}">{{teach.name}}</a></h4>
+    </div>
+    <div>
+      <button teach-id="{{teach.id}}">DELETE</button>
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{/if}}
+</div>
+
+{{#if learns.length}}
+<div class="learn-list">
+  <h3>thing i want to learn</h3>
+
+  {{#each learns as |learn|}}
+  <div>
+    <div>
+      <h4><a href="/learn/{{learn.id}}">{{learn.name}}</a></h4>
+    </div>
+    <div>
+      <button learn-id="{{learn.id}}">DELETE</button>
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{/if}}
+</div>
+
+
+
+<script src="./js/addTeachRequest.js"></script>
+<script src="./js/addLearnRequest.js"></script>

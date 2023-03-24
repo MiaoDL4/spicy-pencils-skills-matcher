@@ -1,27 +1,23 @@
-const Users = require("./Users");
-const Learn = require("./Learn");
-const Teach = require("./Teach");
-const Skills = require("./Skills");
+const User = require('./User');
+const Teach = require('./Teach');
+const Learn = require('./Learn');
 
-Users.belongsTo(Learn, {
-  foreignKey: "learn_id",
+User.hasMany(Teach, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
 });
 
-Users.belongsTo(Teach, {
-  foreignKey: "teach_id",
+Teach.belongsTo(User, {
+  foreignKey: 'user_id'
 });
 
-Teach.hasMany(Skills, {
-  foreignKey: "skill_id",
+User.hasMany(Learn, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
 });
 
-Learn.hasMany(Skills, {
-  foreignKey: "skill_id",
+Learn.belongsTo(User, {
+  foreignKey: 'user_id'
 });
 
-module.exports = {
-  Users,
-  Learn,
-  Teach,
-  Skills,
-};
+module.exports = { User, Teach , Learn };

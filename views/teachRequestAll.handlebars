@@ -1,0 +1,15 @@
+{{#each canTeach as |teach| }}
+<div>
+  <div>
+    <h2>
+      <a href="/teach/{{teach.id}}">{{teach.name}}</a>
+    </h2>
+    <p>Created by {{teach.user.name}} on {{format_date teach.date_created}}</p>
+  </div>
+  <div>
+    <p>
+      {{teach.description}}
+    </p>
+  </div>
+</div>
+{{/each}}

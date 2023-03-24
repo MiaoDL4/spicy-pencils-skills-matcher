@@ -1,0 +1,15 @@
+{{#each canLearn as |learn| }}
+<div>
+  <div>
+    <h2>
+      <a href="/learn/{{learn.id}}">{{learn.name}}</a>
+    </h2>
+    <p>Created by {{learn.user.name}} on {{format_date learn.date_created}}</p>
+  </div>
+  <div>
+    <p>
+      {{learn.description}}
+    </p>
+  </div>
+</div>
+{{/each}}
