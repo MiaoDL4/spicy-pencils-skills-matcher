@@ -37,6 +37,14 @@ User.init(
     },
     mobile: {
       type: DataTypes.INTEGER,
+    },
+    country: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    communication: {
+      type: DataTypes.STRING,
+      allowNull: false,
     }
   },
   {
