@@ -3,18 +3,24 @@
     "name": "Sal",
     "email": "sal@hotmail.com",
     "password": "password12345",
-    "mobile": 1234567890
+    "mobile": 1234567890,
+    "country": "Australia",
+    "communication": "Email"
   },
   {
     "name": "Lernantino",
     "email": "lernantino@gmail.com",
     "password": "password12345",
-    "mobile": 1234567890
+    "mobile": 1234567890,
+    "country": "Australia",
+    "communication": "Mobile"
   },
   {
     "name": "Amiko",
     "email": "amiko2k20@aol.com",
     "password": "password12345",
-    "mobile": 1234567890
+    "mobile": 1234567890,
+    "country": "United States",
+    "communication": "Email"
   }
 ]

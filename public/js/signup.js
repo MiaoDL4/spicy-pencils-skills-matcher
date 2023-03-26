@@ -5,11 +5,13 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector('#email-signup').value.trim();
   const mobile = document.querySelector('#mobile-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
-
-  if (name && email && password && mobile) {
+  const country = document.querySelector('#country-signup').value.trim();
+  const communication = document.querySelector('.form-check-input[type="checkbox"][name="preferred-communication"]:checked');
+  
+  if (name && email && password && mobile && country & communication) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ name, email, password , mobile}),
+      body: JSON.stringify({ name, email, password , mobile, country, communication}),
       headers: { 'Content-Type': 'application/json' },
     });
 
