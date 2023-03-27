@@ -141,6 +141,16 @@ router.get('/signup', (req, res) => {
 
 router.get('/matches', withAuth, async (req, res) => {
   try {
+    const userTData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Teach, Learn }],
+    });
+    const userLData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Learn }],
+    });
+
+
     const teachData = await Teach.findAll({
       include: [
         {
@@ -159,55 +169,84 @@ router.get('/matches', withAuth, async (req, res) => {
       ],
     });
 
+    const Tuser = userTData.get({ plain: true });
+    const Luser = userLData.get({ plain: true });
     const canTeach = teachData.map((teach) => teach.get({ plain: true }));
     const canLearn = learnData.map((learn) => learn.get({ plain: true }));
 
+    console.log(Tuser);
+    console.log(Luser);
+    console.log(canTeach);
+    console.log(canLearn)
+
     console.log(canTeach[0].name);
+    console.log(canLearn.length)
+    let teachOBJ = [];
+    let learnOBJ = [];
+    let matchedTeachObj = [];
+    let matchedLearnObj = [];
+    let wanttoLearn = [];
+    let wanttoTeach = [];
 
-    let sortedCSSObj = [];
-    let sortedHTMLObj = [];
-    let sortedJSObj = [];
 
+    if (Tuser.teaches) {
+      teachOBJ = Tuser.teaches;
+    }
 
-    for (let i = 0; i < canTeach.length; i++) {
-      if (canTeach[i].name === "CSS" && canLearn[i].name === "CSS") {
-        sortedCSSObj.push(canTeach[i]);
-        sortedCSSObj.push(canLearn[i]);
-      } else if (canTeach[i].name === "HTML" && canLearn[i].name === "HTML") {
-        sortedHTMLObj.push(canTeach[i]);
-        sortedHTMLObj.push(canLearn[i]);
-      } else {
-        sortedJSObj.push(canTeach[i]);
-        sortedJSObj.push(canLearn[i]);
+    if (Luser.learns) {
+      learnOBJ = Luser.learns;
+    }
+
+    console.log(learnOBJ)
+    console.log(learnOBJ[0].name)
+    console.log(canTeach[1].name)
+
+    for (i = 0; i < teachOBJ.length; i++) {
+      wanttoTeach.push(teachOBJ[i].name)
+    }
+
+    for (i = 0; i < learnOBJ.length; i++) {
+      wanttoLearn.push(learnOBJ[i].name)
+    }
+    console.log(wanttoTeach);
+    console.log(wanttoLearn);
+
+    for (i = 0; i < canTeach.length; i++) {
+      for (j = 0; j < wanttoLearn.length; j++) {
+        if (canTeach[i].name === wanttoLearn[j]) {
+          matchedLearnObj.push(canTeach[i]);
+        }
       }
     }
-    console.log('================================================');
-    console.log(sortedCSSObj);
-    console.log('================================================');
-    console.log(sortedHTMLObj);
-    console.log('================================================');
-    console.log(sortedJSObj);
-    console.log('================================================');
+    console.log(matchedLearnObj)
+    
+   
 
-  
+    for (i = 0; i < canLearn.length; i++) {
+      for (j = 0; j < wanttoTeach.length; j++) {
+        if (canTeach[i].name === wanttoTeach[j]) {
+          matchedTeachObj.push(canTeach[i]);
+        }
+      }
+    }
+    console.log(matchedTeachObj);
+
     res.render('match', {
-      sortedCSSObj,
-      sortedHTMLObj,
-      sortedJSObj,
+      matchedLearnObj,
+      matchedTeachObj,
       logged_in: req.session.logged_in,
     });
     console.log(req.session.logged_in);
     console.log('================================================');
-    console.log(sortedCSSObj);
+    console.log(matchedLearnObj);
     console.log('================================================');
-    console.log(sortedHTMLObj);
-    console.log('================================================');
-    console.log(sortedJSObj);
+    console.log(matchedTeachObj);
     console.log('================================================');
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 
 module.exports = router;
