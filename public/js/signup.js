@@ -6,7 +6,7 @@ const signupFormHandler = async (event) => {
   const mobile = document.querySelector('#mobile-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
   const country = document.querySelector('#country-signup').value.trim();
-  const communication = document.querySelector('.form-check-input[type="checkbox"][name="preferred-communication"]:checked').value;
+  const communication = document.querySelector('input[name="preferred-communication[]"]:checked').value;
   
   if (name && email && password && mobile && country && communication) {
     const response = await fetch('/api/users', {
