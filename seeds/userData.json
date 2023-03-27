@@ -22,5 +22,51 @@
     "mobile": 1234567890,
     "country": "United States",
     "communication": "Email"
-  }
+  },
+  {
+    "name": "Cassie Campbell",
+    "email": "cassiecampbell@email.com",
+    "password": "password12345",
+    "mobile": 1234567890,
+    "country": "Canada",
+    "communication": "Mobile"
+    
+},
+{
+    "name": "Sarah Nurse",
+    "email": "sarahnurse@email.com",
+    "password": "password12345",
+    "mobile": 1234567890,
+    "country": "Canada",
+    "communication": "Email"
+   
+},
+{
+    "name": "Wayne Gretzky",
+    "email": "waynegretzky@email.com",
+    "password": "password12345",
+    "mobile": 1234567890,
+    "country": "Australia",
+    "communication": "Email"
+   
+},
+{
+    "name": "Connor Mcdavid",
+    "email": "connormcdavid@email.com",
+    "password": "password12345",
+    "mobile": 1234567890,
+    "country": "Australia",
+    "communication": "Mobile"
+   
+},
+{
+    "name": "Sidney Crosby",
+    "email": "sidneycrosby@email.com",
+    "password": "password",
+    "mobile": 1234567890,
+    "country": "Canada",
+    "communication": "Email"
+   
+}
 ]
+
