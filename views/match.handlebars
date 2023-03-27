@@ -1,0 +1,53 @@
+{{#each sortedCSSObj as |learn|}}
+<p> ===================================================================== </p> <!-- needed to be deleted after design done -->
+<div>
+  <div>
+    <h2>
+      <a href="/teach/{{learn.id}}">{{learn.name}}</a>
+    </h2>
+    <p>Created by {{learn.user.name}}</p>
+  </div>
+  <div>
+    <p>
+      {{learn.description}}
+    </p>
+  </div>
+</div>
+{{/each}}
+
+{{#each sortedHTMLObj as |learn|}}
+<p> ===================================================================== </p> <!-- needed to be deleted after design done -->
+<div>
+  <div>
+    <h2>
+      <a href="/teach/{{learn.id}}">{{learn.name}}</a>
+    </h2>
+    <p>Created by {{learn.user.name}}</p>
+  </div>
+  <div>
+    <p>
+      {{learn.description}}
+    </p>
+  </div>
+</div>
+{{/each}}
+
+
+
+
+{{#each sortedJSObj as |learn|}}
+<p> ===================================================================== </p> <!-- needed to be deleted after design done -->
+<div>
+  <div>
+    <h2>
+      <a href="/teach/{{learn.id}}">{{learn.name}}</a>
+    </h2>
+    <p>Created by {{learn.user.name}}</p>
+  </div>
+  <div>
+    <p>
+      {{learn.description}}
+    </p>
+  </div>
+</div>
+{{/each}}
