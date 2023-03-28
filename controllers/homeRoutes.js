@@ -174,13 +174,7 @@ router.get('/matches', withAuth, async (req, res) => {
     const canTeach = teachData.map((teach) => teach.get({ plain: true }));
     const canLearn = learnData.map((learn) => learn.get({ plain: true }));
 
-    console.log(Tuser);
-    console.log(Luser);
-    console.log(canTeach);
-    console.log(canLearn)
-
-    console.log(canTeach[0].name);
-    console.log(canLearn.length)
+    
     let teachOBJ = [];
     let learnOBJ = [];
     let matchedTeachObj = [];
@@ -197,10 +191,7 @@ router.get('/matches', withAuth, async (req, res) => {
       learnOBJ = Luser.learns;
     }
 
-    console.log(learnOBJ)
-    console.log(learnOBJ[0].name)
-    console.log(canTeach[1].name)
-
+    
     for (i = 0; i < teachOBJ.length; i++) {
       wanttoTeach.push(teachOBJ[i].name)
     }
@@ -208,9 +199,7 @@ router.get('/matches', withAuth, async (req, res) => {
     for (i = 0; i < learnOBJ.length; i++) {
       wanttoLearn.push(learnOBJ[i].name)
     }
-    console.log(wanttoTeach);
-    console.log(wanttoLearn);
-
+  
     for (i = 0; i < canTeach.length; i++) {
       for (j = 0; j < wanttoLearn.length; j++) {
         if (canTeach[i].name === wanttoLearn[j]) {
@@ -218,7 +207,7 @@ router.get('/matches', withAuth, async (req, res) => {
         }
       }
     }
-    console.log(matchedLearnObj)
+
     
    
 
