@@ -224,8 +224,8 @@ router.get('/matches', withAuth, async (req, res) => {
 
     for (i = 0; i < canLearn.length; i++) {
       for (j = 0; j < wanttoTeach.length; j++) {
-        if (canTeach[i].name === wanttoTeach[j]) {
-          matchedTeachObj.push(canTeach[i]);
+        if (canLearn[i].name === wanttoTeach[j]) {
+          matchedTeachObj.push(canLearn[i]);
         }
       }
     }
@@ -246,7 +246,5 @@ router.get('/matches', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
 
 module.exports = router;
