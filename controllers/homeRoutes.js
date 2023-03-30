@@ -101,7 +101,7 @@ router.get('/profile', withAuth, async (req, res) => {
     });
     const userLData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model:  Learn }],
+      include: [{ model: Learn }],
     });
 
     const Tuser = userTData.get({ plain: true });
@@ -113,6 +113,7 @@ router.get('/profile', withAuth, async (req, res) => {
       logged_in: true,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -174,14 +175,16 @@ router.get('/matches', withAuth, async (req, res) => {
     const canTeach = teachData.map((teach) => teach.get({ plain: true }));
     const canLearn = learnData.map((learn) => learn.get({ plain: true }));
 
-    
+
     let teachOBJ = [];
     let learnOBJ = [];
     let matchedTeachObj = [];
     let matchedLearnObj = [];
     let wanttoLearn = [];
     let wanttoTeach = [];
-    
+
+    console.log(Tuser);
+    console.log(Luser);
 
     if (Tuser.teaches) {
       teachOBJ = Tuser.teaches;
@@ -191,7 +194,12 @@ router.get('/matches', withAuth, async (req, res) => {
       learnOBJ = Luser.learns;
     }
 
-    
+    console.log(Tuser.teaches);
+    console.log(Luser.learns);
+    console.log(teachOBJ);
+    console.log(learnOBJ);
+    console.log(!learnOBJ);
+
     for (i = 0; i < teachOBJ.length; i++) {
       wanttoTeach.push(teachOBJ[i].name)
     }
@@ -199,7 +207,7 @@ router.get('/matches', withAuth, async (req, res) => {
     for (i = 0; i < learnOBJ.length; i++) {
       wanttoLearn.push(learnOBJ[i].name)
     }
-  
+
     for (i = 0; i < canTeach.length; i++) {
       for (j = 0; j < wanttoLearn.length; j++) {
         if (canTeach[i].name === wanttoLearn[j] && canTeach[i].user.name !== Luser.name) {
@@ -221,7 +229,7 @@ router.get('/matches', withAuth, async (req, res) => {
       matchedTeachObj,
       logged_in: req.session.logged_in,
     });
-   
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
