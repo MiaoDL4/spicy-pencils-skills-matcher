@@ -181,7 +181,7 @@ router.get('/matches', withAuth, async (req, res) => {
     let matchedLearnObj = [];
     let wanttoLearn = [];
     let wanttoTeach = [];
-
+    
 
     if (Tuser.teaches) {
       teachOBJ = Tuser.teaches;
@@ -202,36 +202,28 @@ router.get('/matches', withAuth, async (req, res) => {
   
     for (i = 0; i < canTeach.length; i++) {
       for (j = 0; j < wanttoLearn.length; j++) {
-        if (canTeach[i].name === wanttoLearn[j]) {
+        if (canTeach[i].name === wanttoLearn[j] && canTeach[i].user.name !== Luser.name) {
           matchedLearnObj.push(canTeach[i]);
         }
       }
     }
 
-    
-   
-
     for (i = 0; i < canLearn.length; i++) {
       for (j = 0; j < wanttoTeach.length; j++) {
-        if (canLearn[i].name === wanttoTeach[j]) {
+        if (canLearn[i].name === wanttoTeach[j] && canLearn[i].user.name !== Tuser.name) {
           matchedTeachObj.push(canLearn[i]);
         }
       }
     }
-    console.log(matchedTeachObj);
 
     res.render('match', {
       matchedLearnObj,
       matchedTeachObj,
       logged_in: req.session.logged_in,
     });
-    console.log(req.session.logged_in);
-    console.log('================================================');
-    console.log(matchedLearnObj);
-    console.log('================================================');
-    console.log(matchedTeachObj);
-    console.log('================================================');
+   
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
