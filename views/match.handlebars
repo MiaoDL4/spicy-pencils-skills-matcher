@@ -1,12 +1,17 @@
+  {{#if matchedLearnObj}}
 <div class="row">
   <div class="col-auto">
     <h2>Here are your matches!</h2>
   </div>
 </div>
 
+
+
 <div class="row mt-5">
   <div class="col-md-6">
     <h4 class="pb-2">You can learn from the below users:</h4>
+
+
 
     {{#each matchedLearnObj as |learn|}}
 
@@ -25,6 +30,7 @@
     {{/each}}
   </div>
   
+  
   <div class="col-md-6">
     <h4 class="pb-2">You can teach the below users:</h4>
 
@@ -41,8 +47,12 @@
         <p>
           {{learn.description}}
         </p>
+        <button type="button" class="btn btn-primary" href="/teach/{{learn.id}}">Contact</button>
       </div>
     </div>
     {{/each}}
   </div>
 </div>
+{{else}}
+          <h4 class="pb-2">You don't have teachs or learns. please register first.</h4>
+{{/if}}
