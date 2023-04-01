@@ -33,7 +33,7 @@ router.get('/teach/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['name', 'email', 'mobile', 'communication'],
         },
       ],
     });
@@ -76,7 +76,7 @@ router.get('/learn/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['name', 'email', 'mobile', 'communication'],
         },
       ],
     });
@@ -228,6 +228,7 @@ router.get('/matches', withAuth, async (req, res) => {
       matchedLearnObj,
       matchedTeachObj,
       logged_in: req.session.logged_in,
+      user: Tuser,
     });
 
   } catch (err) {
