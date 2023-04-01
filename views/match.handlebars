@@ -1,7 +1,7 @@
   {{#if matchedLearnObj}}
 <div class="row">
   <div class="col-auto">
-    <h2>Here are your matches!</h2>
+    <h2>Here are your matches, {{user.name}}!</h2>
   </div>
 </div>
 
@@ -18,9 +18,9 @@
     <div class="border p-3 mb-4">
       <div>
         <h2>
-          <a href="/teach/{{learn.id}}">{{learn.name}}</a>
+          <a href="/teach/{{learn.id}}">{{user.name}}</a>
         </h2>
-        <p>Created by {{learn.user.name}}</p>
+        <p><strong>I want to learn: {{learn.name}}</strong></p>
       </div>
       <div>
         <p>{{learn.description}}</p>
@@ -39,9 +39,9 @@
     <div class="border p-3 mb-4">
       <div>
         <h2>
-          <a href="/teach/{{learn.id}}">{{learn.name}}</a>
+          <a href="/teach/{{learn.id}}">{{user.name}}</a>
         </h2>
-        <p>Created by {{learn.user.name}}</p>
+        <p>I want to teach: {{learn.name}}</p>
       </div>
       <div>
         <p>
@@ -54,5 +54,5 @@
   </div>
 </div>
 {{else}}
-          <h4 class="pb-2">You don't have teachs or learns. please register first.</h4>
+          <h4 class="pb-2">You don't have any matches. Register a skill on the profile page first.</h4>
 {{/if}}
