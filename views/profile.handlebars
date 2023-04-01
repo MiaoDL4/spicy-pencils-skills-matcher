@@ -61,6 +61,7 @@
     <div class="list-group-item">
       <div class="d-flex w-100 justify-content-between">
         <h4 class="mb-1"><a href="/teach/{{teach.id}}">{{teach.name}}</a></h4>
+        <h6><a href="/chat/{{teach.name}}">Join the {{teach.name}} chat</a></h6>
         <button type="button" class="btn btn-danger" teach-id="{{teach.id}}">DELETE</button>
       </div>
     </div>
@@ -77,6 +78,7 @@
     <div class="list-group-item">
       <div class="d-flex w-100 justify-content-between">
         <h4 class="mb-1"><a href="/learn/{{learn.id}}">{{learn.name}}</a></h4>
+        <h6><a href="/chat/{{learn.name}}">Join the {{learn.name}} chat</a></h6>
         <button type="button" class="btn btn-danger" learn-id="{{learn.id}}">DELETE</button>
       </div>
     </div>
