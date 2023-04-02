@@ -52,7 +52,7 @@ router.get('/teach/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name', 'email', 'mobile', 'communication'],
+          attributes: ['name', 'email', 'mobile', 'communication', 'country'],
         },
       ],
     });
@@ -95,7 +95,7 @@ router.get('/learn/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name', 'email', 'mobile', 'communication'],
+          attributes: ['name', 'email', 'mobile', 'communication', 'country'],
         },
       ],
     });
