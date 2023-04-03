@@ -12,6 +12,9 @@
 ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
 ![Zoom](https://img.shields.io/badge/Zoom-2D8CFF?style=for-the-badge&logo=zoom&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![Socket.io](https://img.shields.io/badge/Socket.io-010101?&style=for-the-badge&logo=Socket.io&logoColor=white)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
+![Google Sheets](https://img.shields.io/badge/Google%20Sheets-34A853?style=for-the-badge&logo=google-sheets&logoColor=white)
 
 ## Concept
 Although learning is a life long journey, it is easy to lose sight of this in the daily grind. In the 9-5, rat race pace of modern life, our desire to coninue learning and even teaching gets set a side due to lack of time and motivation. This is an application aimed at growing a community where members can be a teacher, a learner or both, but all must be advocates of life long learning.
@@ -46,7 +49,23 @@ Someone who would like to teach skills and/or learn new skills can spend hours s
 
 ## Usage
 
-The following images show the completed website. You can visit here: 
+The following image shows the wireframes:
+
+<img src="assets/images/wireframe.png" alt="Photo of the proposed design and layout of the website."/>
+
+
+The following images show the completed website. You can visit here: https://spicy-pencils-skills-matcher-1.herokuapp.com/ 
+
+<img src="assets/images/homepage.png" alt="Photo of the homepage, explaining how the application works."/>
+
+
+<img src="assets/images/profile.png" alt="Photo of profile page where user selects which skills they want to teach and what skills they want to learn."/>
+
+
+<img src="assets/images/all-teachers.png" alt="Photo of a list of all the teachers."/>
+
+
+<img src="assets/images/all-learners.png" alt="Photo of a list of all the learners"/>
 
 ## Contributors
 
@@ -57,4 +76,12 @@ Dong Miao https://github.com/MiaoDL4
 Hyunsik Kim https://github.com/kayden-hyunsikkim
 
 Tyler Leeming https://github.com/TLeeming15
+
+## Installation
+
+N/A
+
+## License
+
+MIT
 
