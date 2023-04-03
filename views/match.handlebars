@@ -21,7 +21,7 @@
               <h2>
                 <a href="/teach/{{learn.id}}">{{user.name}}</a>
               </h2>
-              <p><strong>I want to learn: {{learn.name}}</strong></p>
+              <p><strong>I want to teach: {{learn.name}}</strong></p>
             </div>
             <div>
               <p>{{learn.description}}</p>
@@ -41,13 +41,15 @@
               <h2>
                 <a href="/learn/{{learn.id}}">{{user.name}}</a>
               </h2>
-              <p>I want to teach: {{learn.name}}</p>
+              <p><strong>I want to learn: {{learn.name}}</strong></p>
             </div>
             <div>
               <p>
                 {{learn.description}}
               </p>
+
               <a class="btn btn-primary" href="mailto:{{user.email}}" role="button">Connect</a>
+
             </div>
           </div>
           {{/each}}
