@@ -7,11 +7,11 @@ const routes = require("./controllers");
 const helpers = require("./utils/helpers");
 const socketio = require("socket.io");
 const {
-  formatMessage,
-  userJoin,
-  getCurrentUser,
-  userLeave,
-  getRoomUsers,
+  messageData,
+  joined,
+  current,
+  leave,
+  getRoom,
 } = require("./utils/socketChat");
 
 const sequelize = require("./config/connection");
@@ -26,7 +26,7 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-  secret: "Super secret secret",
+  secret: "Something secret",
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -46,9 +46,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 io.on("connection", (socket) => {
   socket.on("joinRoom", ({ username, room }) => {
-    console.log(username);
-    console.log(room);
-    const user = userJoin(socket.id, username, room);
+    const user = joined(socket.id, username, room);
 
     socket.join(user.room);
 
@@ -56,36 +54,33 @@ io.on("connection", (socket) => {
       .to(user.room)
       .emit(
         "message",
-        formatMessage(
-          "System",
-          `${user.username} has joined the ${user.room}room`
-        )
+        messageData("System", `${user.username} has joined the chat`)
       );
 
     io.to(user.room).emit("roomUsers", {
       room: user.room,
-      users: getRoomUsers(user.room),
+      users: getRoom(user.room),
     });
   });
 
   socket.on("chatMessage", (msg) => {
-    user = getCurrentUser(socket.id);
-    console.log(user.room);
-    io.to(user.room).emit("message", formatMessage(user.username, msg));
+    user = current(socket.id);
+
+    io.to(user.room).emit("message", messageData(user.username, msg));
   });
 
   socket.on("disconnect", () => {
-    const user = userLeave(socket.id);
+    const user = leave(socket.id);
 
     if (user) {
       io.to(user.room).emit(
         "message",
-        formatMessage("System", `${user.username} has left the chat`)
+        messageData("System", `${user.username} has left the chat`)
       );
 
       io.to(user.room).emit("roomUsers", {
         room: user.room,
-        users: getRoomUsers(user.room),
+        users: getRoom(user.room),
       });
     }
   });

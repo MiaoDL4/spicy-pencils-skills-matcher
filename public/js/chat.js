@@ -1,8 +1,9 @@
-const chatForm = document.getElementById("chat-form");
-const roomName = document.getElementById("room-name");
-const userList = document.getElementById("users");
+const chatForm = document.querySelector("#input");
+const roomName = document.querySelector("#room");
+const userList = document.querySelector("#users");
+const chatArea = document.querySelector(".chatBox");
 
-const username = document.getElementById("username").textContent;
+const username = document.querySelector("#loggedUser").textContent;
 const room = window.location.pathname.replace("/chat/", "");
 
 const socket = io();
@@ -23,6 +24,9 @@ chatForm.addEventListener("submit", (event) => {
 
   const message = event.target.elements.message.value;
 
+
+  chatArea.scrollTop = chatArea.scrollHeight;
+
   socket.emit("chatMessage", message);
 
   event.target.elements.message.value = "";
@@ -33,12 +37,12 @@ function output(message) {
   const div = document.createElement("div");
   div.classList.add("message");
   div.innerHTML = `<div>
-    <p>${message.username} <span>${message.time}</span></p>
+    <p>${message.username} at ${message.time}</p>
     <p'>
         ${message.text}
     </p>
     </div>`;
-  document.querySelector(".chat-messages").appendChild(div);
+    chatArea.appendChild(div);
 }
 
 function outputRoomName(room) {
