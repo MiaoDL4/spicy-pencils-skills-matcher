@@ -21,7 +21,7 @@
               <h2>
                 <a href="/teach/{{learn.id}}">{{user.name}}</a>
               </h2>
-              <p><strong>I want to learn: {{learn.name}}</strong></p>
+              <p><strong>I want to teach: {{learn.name}}</strong></p>
             </div>
             <div>
               <p>{{learn.description}}</p>
@@ -41,13 +41,13 @@
               <h2>
                 <a href="/learn/{{learn.id}}">{{user.name}}</a>
               </h2>
-              <p>I want to teach: {{learn.name}}</p>
+              <p><strong>I want to learn: {{learn.name}}</strong></p>
             </div>
             <div>
               <p>
                 {{learn.description}}
               </p>
-              <button type="button" class="btn btn-primary" href="/teach/{{learn.id}}">Contact</button>
+              <button type="button" class="btn btn-primary" href="/learn/{{learn.id}}">Contact</button>
             </div>
           </div>
           {{/each}}
