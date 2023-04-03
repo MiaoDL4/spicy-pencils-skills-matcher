@@ -67,8 +67,11 @@
 
 {{#if teaches.length}}
 <div class="mt-5 teach-list">
-  <h3>Skills I Want To Teach</h3>
-  <div class="list-group">
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#teachCol" aria-expanded="false" aria-controls="teachCol">
+    <h3>Skills I Want To Teach</h3>
+  </button>
+  <div class="collapse list-group" id="teachCol">
+  <div class="card card-body">
     {{#each teaches as |teach|}}
     <div class="list-group-item">
       <div class="d-flex w-100 justify-content-between">
@@ -82,10 +85,14 @@
 </div>
 {{/if}}
 
+
 {{#if learns.length}}
-<div class="mt-5 learn-list">
-  <h3>Skills I Want To Learn</h3>
-  <div class="list-group">
+<div class="mt-5 teach-list">
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#LearnCol" aria-expanded="false" aria-controls="LearnCol">
+    <h3>Skills I Want To Learn</h3>
+  </button>
+  <div class="collapse list-group" id="LearnCol">
+  <div class="card card-body">
     {{#each learns as |learn|}}
     <div class="list-group-item">
       <div class="d-flex w-100 justify-content-between">
