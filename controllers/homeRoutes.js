@@ -175,7 +175,7 @@ router.get('/matches', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['name', 'email', 'mobile', 'communication', 'country'],
         },
       ],
     });
@@ -184,7 +184,7 @@ router.get('/matches', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['name', 'email', 'mobile', 'communication', 'country'],
         },
       ],
     });
