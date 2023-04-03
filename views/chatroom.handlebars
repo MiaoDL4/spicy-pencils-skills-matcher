@@ -1,32 +1,36 @@
 <div class="container">
   <div class="row">
-    <div class="col container">
+    <div class="col-3 container">
       <div class="row">
-        <h3>Room Name: </h3>
-        <h3 id="room-name"> </h3>
+        <h3 id="room"> </h3>
       </div>
       <div class="row"></div>
-        <h3>Users</h3>
-        <ul id="users"></ul>
+      <h3>Users :</h3>
+      <ul style="list-style: none;" id="users"></ul>
+      <a href="/profile" class="btn btn-danger">Leave</a>
     </div>
 
     <div class="col container">
-      <div class="row">
-        <div class="chat-messages"></div>
+      <div class="row border border-primary">
+        <div style="height: 300px; overflow: auto" class="chatBox col"></div>
       </div>
       <div class="row">
-          <form id="chat-form">
-    <input id="message" type="text" placeholder="Please Enter a Message" />
-    <button class="btn btn-primary">Send</button>
-    <a href="/profile" class="btn btn-danger">Leave</a>
-  </form>
+        <form id="input">
+          <input
+            type="text"
+            placeholder="Please Enter a Message"
+            id="message"
+          />
+          <button class="btn btn-primary">Send</button>
+
+        </form>
 
       </div>
     </div>
   </div>
 </div>
 
-<p id="username" hidden>{{name}}</p>
+<p id="loggedUser" hidden>{{name}}</p>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="../js/chat.js"></script>

@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Teach extends Model {}
 
@@ -30,8 +30,8 @@ Teach.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id',
+        model: "user",
+        key: "id",
       },
     },
   },
@@ -40,7 +40,7 @@ Teach.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'teach',
+    modelName: "teach",
   }
 );
 
